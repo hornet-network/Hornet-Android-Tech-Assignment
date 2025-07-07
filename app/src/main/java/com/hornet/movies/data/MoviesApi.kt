@@ -11,8 +11,9 @@ interface MoviesApi {
     @GET(value = "discover/movie")
     suspend fun discover(
         @Query("page") page: Int,
-        @Query("sort_by") sortBy: String = "vote_count.desc",
+        @Query("sort_by") sortBy: String = "vote_average.desc",
         @Query("primary_release_date.gte") releaseDateMin: String = "1980-09-12",
+        @Query("vote_count.gte") voteCountMin: Int = 17000,
         @Query("with_original_language") originalLanguage: String = "en",
         @Query("include_video") includeVideo: Boolean = false,
         @Query("include_adult") includeAdult: Boolean = false,
