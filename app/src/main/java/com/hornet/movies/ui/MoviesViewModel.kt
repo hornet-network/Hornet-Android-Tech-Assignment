@@ -1,5 +1,6 @@
 package com.hornet.movies.ui
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.hornet.movies.data.MoviesService
@@ -152,6 +153,7 @@ class MoviesViewModel : ViewModel() {
 
                 _uiState.value = _uiState.value.copy(movies = finalUpdatedMovies)
             } catch (e: Exception) {
+                Log.e("Error", "-------------------------\n${e.message}\n-------------------------\n")
                 val errorUpdatedMovies = _uiState.value.movies.map { movieWithDetails ->
                     if (movieWithDetails.movie.id == movieId) {
                         movieWithDetails.copy(isLoadingDetails = false)

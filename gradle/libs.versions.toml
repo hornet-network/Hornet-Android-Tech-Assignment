@@ -14,6 +14,8 @@ retrofit = "2.11.0"
 okhttp = "4.12.0"
 coil = "2.7.0"
 lifecycle = "2.9.1"
+googleMlVision = "16.0.1"
+googleMlTranslate = "17.0.3"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -41,6 +43,9 @@ squareup-okhttp3 = { module = "com.squareup.okhttp3:okhttp", version.ref = "okht
 
 coil-compose = { module = "io.coil-kt:coil-compose", version.ref = "coil" }
 lifecycle-viewmodel-compose = { module = "androidx.lifecycle:lifecycle-viewmodel-compose", version.ref = "lifecycle" }
+
+google-mlkit-text = { module = "com.google.mlkit:text-recognition", version.ref = "googleMlVision" }
+google-mlkit-translate = { module = "com.google.mlkit:translate", version.ref = "googleMlTranslate" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
