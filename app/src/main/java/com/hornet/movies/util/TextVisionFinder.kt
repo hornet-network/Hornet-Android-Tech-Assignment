@@ -1,5 +1,6 @@
 package com.hornet.movies.util
 
+import android.util.Log
 import androidx.core.graphics.toRectF
 import com.google.mlkit.common.model.DownloadConditions
 import com.google.mlkit.nl.translate.TranslateLanguage
@@ -45,14 +46,14 @@ class TextVisionFinder() {
             recognizer.process(image).addOnSuccessListener { textVision ->
                 // A list of Text to Box pairs <String, RectF>
                 val normalizedTextBoxes = textVision.textBlocks.mapNotNull { it.text to it.boundingBox?.toRectF()?.normalize(image.width, image.height) }
-                println("====== Text Found ========================")
+                Log.e("TextVisionFinder","====== Text Found ========================")
                 normalizedTextBoxes.forEach {
                     val originalText = it.first
                     val textBox = it.second
-                    println("====== Text: ${originalText}\n" +
+                    Log.e("TextVisionFinder","====== Text: ${originalText}\n" +
                             "======   Box: (${textBox?.top},${textBox?.left}) to (${textBox?.bottom},${textBox?.right})")
                 }
-                println("==========================================")
+                Log.e("TextVisionFinder","==========================================")
             }
         }
     }
